@@ -521,8 +521,8 @@ Os testes de integração são usados para testar a forma como as partes individ
 #### Instrumentar o app
 
 Para criar um teste de integração, primeiro é necessário instrumentar o app. Isso significa configurá-lo para que o driver possa acessar a GUI e as funções para criar e executar um teste automatizado. Os testes de integração são colocados em um diretório chamado integration_test. Nesta etapa, você adicionará os seguintes arquivos para criar o teste de integração:
-- integration_test/driver.dart: instrumenta o app.
-- integration_test/app_test.dart: executa os testes no app.
+- <b>integration_test/driver.dart</b>: instrumenta o app.
+- <b>integration_test/app_test.dart</b>: executa os testes no app.
 
 Crie um diretório chamado <b>integration_test</b> no diretório raiz do projeto. Nesse diretório, crie um arquivo <b>driver.dart</b> e adicione o código a seguir:
 
