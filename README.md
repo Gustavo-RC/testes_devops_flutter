@@ -4,12 +4,12 @@
 
 O Flutter é um kit de ferramentas do Google para criar apps nativos para dispositivos móveis, web e computadores com uma única base de código.
 
-O que você aprenderá?
+#### O que você aprenderá?
 - Como criar testes usando o framework de testes de widgets;
-- Como criar um teste de integração para testar a IU e o desempenho do app usando o pacote <b>integration_test</b>;
+- Como criar um teste de integração para testar a IU usando o pacote <b>integration_test</b>;
 - Como testar classes de dados (provedores) com a ajuda de testes de unidade.
 
-O que você criará?
+#### O que você criará?
 
 Você começará criando um aplicativo simples com uma lista de itens. O app é compatível com as seguintes operações:
 - Adicionar itens aos favoritos;
@@ -19,7 +19,7 @@ Você começará criando um aplicativo simples com uma lista de itens. O app é 
 Depois que o app estiver pronto, você criará os seguintes testes:
 - Testes de unidade para validar as operações de inclusão e remoção;
 - Testes de widgets para as página inicial e de favoritos;
-- Testes de IU e desempenho para o app todo usando testes de integração.
+- Testes de IU para o app todo usando testes de integração.
 
 ## 2. Configurar o ambiente do Flutter
 
@@ -514,7 +514,7 @@ void main() {
 }
 ```
 
-## 7. Como testar o desempenho e a IU do app com testes de integração
+## 7. Como testar a IU do app com testes de integração
 
 Os testes de integração são usados para testar a forma como as partes individuais de um app funcionam em conjunto. O pacote integration_test é usado para fazer testes de integração no Flutter. Essa é a versão do Flutter do Selenium WebDrive (Web), Protrator (Angular), Espresso (Android) ou Earl Gray (iOS). O pacote usa o flutter_driver internamente para conduzir o teste em um dispositivo.
 
@@ -544,7 +544,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:testes_devops/main.dart';
  
 void main() {
-  group('Testes de performance', () {
+  group('Testes de funcionalidades', () {
     testWidgets('Teste de scroll', (tester) async {
       await tester.pumpWidget(TestesDevops());
  
@@ -614,22 +614,43 @@ VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:44
 VMServiceFlutterDriver: Isolate found with number: 1477414812874439
 VMServiceFlutterDriver: Isolate is paused at start.
 VMServiceFlutterDriver: Attempting to resume isolate
-I/flutter ( 3467): 00:00 +0: Testes de performance Teste de scroll
+I/flutter ( 3467): 00:00 +0: Testes de funcionalidades Teste de scroll
 VMServiceFlutterDriver: Flutter Driver extension is taking a long time to become available. Ensure your test app (often "lib/main.dart") imports "package:flutter_driver/driver_extension.dart" and calls enableFlutterDriverExtension() as the first call in main().
-I/flutter ( 3467): 00:06 +1: Testes de performance Testes dos favoritos
+I/flutter ( 3467): 00:06 +1: Testes de funcionalidades Testes dos favoritos
 I/flutter ( 3467): 00:30 +2: All tests passed!
 ```
 
-## 8. Parabéns!
+## 8. Relatórios de cobertura
 
-Você aprendeu:
+Para configurar um relatório de cobertura geral do projeto e dos arquivos outras etapas são necessárias.
+A primeira delas é instalar o <b>lcov</b> no terminal, já que esse é o formato de relatório que o Flutter gera. Para isso, gere o seguinte comando:
+
+```shell
+$ apt install lcov
+```
+
+Com o <b>lcov</b> instalado é possível gerar um relatório utilizando a ferramenta <b>genhtml</b> presente nele. Essa ferramenta gera um relatório HTML com a cobertura geral do projeto, das pastas e até dos arquivos.
+
+O comando para gerar o relatório é o seguinte:
+
+```shell
+$ genhtml coverage/lcov.info --output=./coverage
+```
+
+Ao rodar esse comando, criamos um relatório HTML dentro da pasta <b>coverage</b>. Para visualizar, abra o arquivo <b>index.html</b> em seu navegador.
+
+![GitHub Logo](/images/logo.png)
+
+## 9. Você aprendeu
 - Como testar widgets usando o framework de testes de widgets.
 - Como testar a IU do app usando testes de integração.
-- Como testar o desempenho do app usando testes de integração.
 - Como testar provedores com a ajuda dos testes de unidade
 
-## 9. Referências!
+## 10. Referências
 - https://codelabs.developers.google.com/codelabs/flutter-app-testing?hl=pt-br#0
 - https://flutter.dev/docs/testing
 - https://flutter.dev/docs/cookbook/testing/integration/scrolling
 - https://flutter.dev/docs/perf/rendering/ui-performance
+- https://medium.com/concretebr/cobertura-de-testes-em-flutter-80b6c2acc2cc
+
+
