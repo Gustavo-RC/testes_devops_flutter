@@ -4,22 +4,22 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>LCOV - lcov.info - lib/screens/home.dart</title>
-  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+  <title>LCOV - lcov.info - screens/home.dart</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
 </head>
 
 <body>
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="title">LCOV - code coverage report</td></tr>
-    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
 
     <tr>
       <td width="100%">
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">lib/screens</a> - home.dart<span style="font-size: 80%;"> (source / <a href="home.dart.func-sort-c.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">screens</a> - home.dart<span style="font-size: 80%;"> (source / <a href="home.dart.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,25 +31,25 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntry">34</td>
             <td class="headerCovTableEntry">36</td>
-            <td class="headerCovTableEntryHi">97.2 %</td>
+            <td class="headerCovTableEntryHi">94.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-09-25 16:38:58</td>
+            <td class="headerValue">2021-09-25 17:13:02</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntryHi">-</td>
           </tr>
-          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
       </td>
     </tr>
 
-    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
   </table>
 
   <table cellpadding=0 cellspacing=0 border=0>
@@ -76,8 +76,8 @@
 <a name="14"><span class="lineNum">      14 </span><span class="lineCov">          1 :         actions: &lt;Widget&gt;[</span></a>
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">          1 :           TextButton.icon(</span></a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">          1 :             style: TextButton.styleFrom(primary: Colors.white),</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :             onPressed: () {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          1 :               Navigator.pushNamed(context, FavoritosPage.routeName);</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineNoCov">          0 :             onPressed: () {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :               Navigator.pushNamed(context, FavoritosPage.routeName);</span></a>
 <a name="19"><span class="lineNum">      19 </span>            :             },</a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 :             icon: Icon(Icons.favorite_border),</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">          1 :             label: Text('Favoritos'),</span></a>
@@ -123,7 +123,7 @@
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">          1 :           onPressed: () {</span></a>
 <a name="62"><span class="lineNum">      62 </span><span class="lineCov">          3 :             !favoritosList.itens.contains(itemNo)</span></a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">          2 :                 ? favoritosList.adicionar(itemNo)</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :                 : favoritosList.remover(itemNo);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          2 :                 : favoritosList.remover(itemNo);</span></a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">          2 :             ScaffoldMessenger.of(context).showSnackBar(</span></a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">          1 :               SnackBar(</span></a>
 <a name="67"><span class="lineNum">      67 </span><span class="lineCov">          4 :                 content: Text(favoritosList.itens.contains(itemNo)</span></a>
@@ -145,7 +145,7 @@
   <br>
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
-    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
     <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
   </table>
   <br>
