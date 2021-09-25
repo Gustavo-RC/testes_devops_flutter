@@ -639,12 +639,13 @@ $ genhtml coverage/lcov.info --output=./coverage
 
 Ao rodar esse comando, criamos um relatório HTML dentro da pasta <b>coverage</b>. Para visualizar, abra o arquivo <b>index.html</b> em seu navegador.
 
-![GitHub Logo](/images/logo.png)
+![Teste](/images/print_code_coverage.png)
 
 ## 9. Você aprendeu
 - Como testar widgets usando o framework de testes de widgets.
 - Como testar a IU do app usando testes de integração.
 - Como testar provedores com a ajuda dos testes de unidade
+- Como gerar relatório de cobertura
 
 ## 10. Referências
 - https://codelabs.developers.google.com/codelabs/flutter-app-testing?hl=pt-br#0
