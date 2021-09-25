@@ -367,7 +367,7 @@ Os testes de widget usam a <b>TestFlutterWidgetsBinding</b>, uma classe que ofer
 
 O framework de teste de widget fornece finders para encontrar widgets, como <b>text()</b>, <b>byType()</b> e <b>byIcon()</b>, além de matchers para analisar os resultados.
 
-#### Comece testando o widget HomePage.
+#### Comece testando o widget HomePage
 
 Criar um novo arquivo de teste. O primeiro teste verifica se a rolagem da <b>HomePage</b> funciona corretamente.
 Crie um novo arquivo no diretório <b>test</b> e nomeie-o como <b>home_test.dart</b>. Adicione o seguinte código no arquivo criado:
@@ -428,13 +428,23 @@ void main() {
 }
 ```
 
-A função createHomeScreen() é usada para criar um app que carrega o widget a ser testado em um MaterialApp, envolvido em um ChangeNotifierProvider. O widget da página inicial precisa que os dois estejam presentes acima dele na árvore de widgets, para que ele consiga herdar e ter acesso aos dados fornecidos por eles. Essa função é transmitida como um parâmetro para a função pumpWidget().
-Executar o teste
+A função <b>createHomeScreen()</b> é usada para criar um app que carrega o widget a ser testado em um <b>MaterialApp</b>, envolvido em um <b>ChangeNotifierProvider</b>. O widget da página inicial precisa que os dois estejam presentes acima dele na árvore de widgets, para que ele consiga herdar e ter acesso aos dados fornecidos por eles. Essa função é transmitida como um parâmetro para a função <b>pumpWidget()</b>.
+
+#### Executar o teste
+
 É possível executar testes de widget da mesma forma que os testes de unidade, mas usando um dispositivo ou emulador que permita assistir o teste. Isso também possibilita usar a recarga dinâmica.
+
 Conecte o dispositivo ou inicie o emulador.
+
 Na linha de comando, navegue até o diretório raiz do projeto e digite o seguinte comando:
+
+```shell
 $ flutter run test/home_test.dart
+```
+
 Se tudo funcionar, você verá uma resposta parecida com a seguinte:
+
+```shell
 Using hardware rendering with device Android SDK built for x86. If you notice graphics artifacts, consider enabling software rendering with
 "--enable-software-rendering".
 Launching test/home_test.dart on Android SDK built for x86 in debug mode...
@@ -463,11 +473,12 @@ The Flutter DevTools debugger and profiler on Android SDK built for x86 is avail
 http://127.0.0.1:9100?uri=http://127.0.0.1:40629/5uMlUZ_AkaA=/
 I/flutter ( 3116): 00:04 +3: Teste de ícone
 I/flutter ( 3116): 00:09 +4: All tests passed!
-Faça mudanças no arquivo de teste e digite Shift + R para fazer uma recarga dinâmica do app. 
-Use o mesmo processo para testar a FavoritosPage com o código a seguir. Siga as mesmas etapas e execute o teste.
+```
+
+Faça mudanças no arquivo de teste e digite <b>Shift + R</b> para fazer uma recarga dinâmica do app. 
+Use o mesmo processo para testar a <b>FavoritosPage</b> com o código a seguir. Siga as mesmas etapas (criando o arquivo <b>test/favoritos_test.dart</b> e incluindo o código abaixo) e execute o teste.
 
 ```dart
-test/favoritos_test.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -506,21 +517,28 @@ void main() {
 ## 7. Como testar o desempenho e a IU do app com testes de integração
 
 Os testes de integração são usados para testar a forma como as partes individuais de um app funcionam em conjunto. O pacote integration_test é usado para fazer testes de integração no Flutter. Essa é a versão do Flutter do Selenium WebDrive (Web), Protrator (Angular), Espresso (Android) ou Earl Gray (iOS). O pacote usa o flutter_driver internamente para conduzir o teste em um dispositivo.
-Instrumentar o app
+
+#### Instrumentar o app
+
 Para criar um teste de integração, primeiro é necessário instrumentar o app. Isso significa configurá-lo para que o driver possa acessar a GUI e as funções para criar e executar um teste automatizado. Os testes de integração são colocados em um diretório chamado integration_test. Nesta etapa, você adicionará os seguintes arquivos para criar o teste de integração:
-integration_test/driver.dart: instrumenta o app.
-integration_test/app_test.dart: executa os testes no app.
-Crie um diretório chamado integration_test no diretório raiz do projeto. Nesse diretório, crie um arquivo driver.dart e adicione o código a seguir:
+- integration_test/driver.dart: instrumenta o app.
+- integration_test/app_test.dart: executa os testes no app.
+
+Crie um diretório chamado <b>integration_test</b> no diretório raiz do projeto. Nesse diretório, crie um arquivo <b>driver.dart</b> e adicione o código a seguir:
 
 ```dart
-integration_test/driver.dart
 import 'package:integration_test/integration_test_driver.dart';
- 
+
 Future<void> main() => integrationDriver();
+```
+  
 Esse código ativa o driver do teste de integração e aguarda a execução do teste. 
-Criar o teste
-Crie um novo arquivo e nomeie-o como app_test.dart.
-integration_test/app_test.dart
+
+#### Criar o teste
+
+Crie um novo arquivo e nomeie-o como <b>app_test.dart</b>.
+
+```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testes_devops/main.dart';
@@ -575,11 +593,19 @@ void main() {
 }
 ```
 
-Executar o teste
+#### Executar o teste
+
 Conecte o dispositivo ou inicie o emulador.
+
 Na linha de comando, navegue até o diretório raiz do projeto e digite o seguinte comando:
+
+```shell
 $ flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart
+```
+
 Se tudo funcionar, você verá uma resposta parecida com a seguinte:
+
+```shell
 Running "flutter pub get" in testes_devops...                      686ms
 Running Gradle task 'assembleDebug'...                              5.6s
 ✓  Built build/app/outputs/flutter-apk/app-debug.apk.
@@ -592,6 +618,7 @@ I/flutter ( 3467): 00:00 +0: Testes de performance Teste de scroll
 VMServiceFlutterDriver: Flutter Driver extension is taking a long time to become available. Ensure your test app (often "lib/main.dart") imports "package:flutter_driver/driver_extension.dart" and calls enableFlutterDriverExtension() as the first call in main().
 I/flutter ( 3467): 00:06 +1: Testes de performance Testes dos favoritos
 I/flutter ( 3467): 00:30 +2: All tests passed!
+```
 
 ## 8. Parabéns!
 
