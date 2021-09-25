@@ -623,10 +623,46 @@ I/flutter ( 3467): 00:30 +2: All tests passed!
 ## 8. Relatórios de cobertura
 
 Para configurar um relatório de cobertura geral do projeto e dos arquivos outras etapas são necessárias.
-A primeira delas é instalar o <b>lcov</b> no terminal, já que esse é o formato de relatório que o Flutter gera. Para isso, gere o seguinte comando:
+
+A primeira delas é executar o comando para gerar o arquivo <b>lcov.info</b>.
+
+```shell
+$ flutter test --coverage
+```
+
+Instale o <b>lcov</b>, já que esse é o formato de relatório que o Flutter gera. Para isso, gere o seguinte comando:
+
+#### Windows
+- Abrir <b>powershell</b> como administrador
+- Instalar choco ([Documentação](https://docs.chocolatey.org/en-us/choco/setup)):
+
+```shell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+- Verificar se foi instalado:
+```shell
+choco --version
+```
+
+- Atualizar pacotes
+```shell
+choco upgrade chocolatey
+```
+
+- Instalar lcov
+```shell
+choco install lcov
+```
+
+#### Linux
 
 ```shell
 $ apt install lcov
+```
+#### MacOS
+
+```shell
+$ brew install lcov
 ```
 
 Com o <b>lcov</b> instalado é possível gerar um relatório utilizando a ferramenta <b>genhtml</b> presente nele. Essa ferramenta gera um relatório HTML com a cobertura geral do projeto, das pastas e até dos arquivos.
@@ -639,12 +675,13 @@ $ genhtml coverage/lcov.info --output=./coverage
 
 Ao rodar esse comando, criamos um relatório HTML dentro da pasta <b>coverage</b>. Para visualizar, abra o arquivo <b>index.html</b> em seu navegador.
 
-![GitHub Logo](/images/logo.png)
+![Teste](/images/print_code_coverage.png)
 
 ## 9. Você aprendeu
 - Como testar widgets usando o framework de testes de widgets.
 - Como testar a IU do app usando testes de integração.
 - Como testar provedores com a ajuda dos testes de unidade
+- Como gerar relatório de cobertura
 
 ## 10. Referências
 - https://codelabs.developers.google.com/codelabs/flutter-app-testing?hl=pt-br#0
@@ -652,5 +689,4 @@ Ao rodar esse comando, criamos um relatório HTML dentro da pasta <b>coverage</b
 - https://flutter.dev/docs/cookbook/testing/integration/scrolling
 - https://flutter.dev/docs/perf/rendering/ui-performance
 - https://medium.com/concretebr/cobertura-de-testes-em-flutter-80b6c2acc2cc
-
-
+- https://docs.chocolatey.org/en-us/choco/setup
