@@ -27,10 +27,10 @@ flutter:
 
 #flutter test
 
-#flutter test test/models/favorites_test.dart
+#flutter test test/models/favoritos_test.dart
 
 #flutter run test/home_test.dart
 
-#flutter run test/favorites_test.dart
+#flutter run test/favoritos_test.dart
 
 #flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart

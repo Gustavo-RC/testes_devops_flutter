@@ -6,7 +6,7 @@ import 'package:testes_devops/main.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Testes de performance', () {
+  group('Testes de funcionalidades', () {
     testWidgets('Teste de scroll', (tester) async {
       await tester.pumpWidget(TestesDevops());
 
