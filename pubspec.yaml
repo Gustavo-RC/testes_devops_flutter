@@ -1,0 +1,36 @@
+name: testes_devops
+description: Testes de software para a matéria de devops.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+  provider: ^6.0.0
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test: any
+
+flutter:
+  uses-material-design: true
+
+#https://codelabs.developers.google.com/codelabs/flutter-app-testing?hl=pt-br#7
+
+#flutter test
+
+#flutter test test/models/favorites_test.dart
+
+#flutter run test/home_test.dart
+
+#flutter run test/favorites_test.dart
+
+#flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart
