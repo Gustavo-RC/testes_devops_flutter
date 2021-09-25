@@ -600,7 +600,7 @@ Conecte o dispositivo ou inicie o emulador.
 Na linha de comando, navegue até o diretório raiz do projeto e digite o seguinte comando:
 
 ```shell
-$ flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart
+$ flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart --coverage
 ```
 
 Se tudo funcionar, você verá uma resposta parecida com a seguinte:
