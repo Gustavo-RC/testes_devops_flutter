@@ -6,7 +6,7 @@ O Flutter é um kit de ferramentas do Google para criar apps nativos para dispos
 
 O que você aprenderá?
 - Como criar testes usando o framework de testes de widgets;
-- Como criar um teste de integração para testar a IU e o desempenho do app usando o pacote integration_test;
+- Como criar um teste de integração para testar a IU e o desempenho do app usando o pacote <b>integration_test</b>;
 - Como testar classes de dados (provedores) com a ajuda de testes de unidade.
 
 O que você criará?
@@ -115,7 +115,7 @@ class TestesDevops extends StatelessWidget {
 }
 ```
 
-Crie um novo diretório chamado <b>screens</b> no lib. Dentro dele crie um novo arquivo chamado <b>home.dart</b> e adicione o seguinte código:
+Crie um novo diretório chamado <b>screens</b> no <b>lib</b>. Dentro dele crie um novo arquivo chamado <b>home.dart</b> e adicione o seguinte código:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -295,7 +295,7 @@ Agora o app está pronto para ser testado. Você dará início aos testes na pr�
 
 Comece fazendo um teste de unidade do modelo favoritos. O que é esse teste? Um teste de unidade verifica se cada unidade individual do software, que geralmente é uma função, executa a tarefa pretendida de modo correto.
 
-Todos os arquivos de teste de um app do Flutter, exceto os testes de integração, são colocados no diretório test.
+Todos os arquivos de teste de um app do Flutter, exceto os testes de integração, são colocados no diretório <b>test</b>.
 
 - Observação: essas instruções usam a linha de comando para executar os testes. No entanto, também é possível usar as opções oferecidas pelo VS Code e pelo Android Studio para executar testes de unidade e de widget no app.
 
