@@ -2,43 +2,42 @@
 
 ## 1. Introdução
 
-O Flutter é um kit de ferramentas do Google para criar apps nativos para dispositivos móveis, Web e computadores com uma única base de código.
+O Flutter é um kit de ferramentas do Google para criar apps nativos para dispositivos móveis, web e computadores com uma única base de código.
 
 O que você aprenderá?
-- Como criar testes usando o framework de testes de widgets.
-- Como criar um teste de integração para testar a IU e o desempenho do app usando o pacote integration_test.
+- Como criar testes usando o framework de testes de widgets;
+- Como criar um teste de integração para testar a IU e o desempenho do app usando o pacote integration_test;
 - Como testar classes de dados (provedores) com a ajuda de testes de unidade.
 
 O que você criará?
 
 Você começará criando um aplicativo simples com uma lista de itens. O app é compatível com as seguintes operações:
-- Adicionar itens aos favoritos
-- Visualizar a lista de favoritos
-- Remover itens da lista de favoritos
+- Adicionar itens aos favoritos;
+- Visualizar a lista de favoritos;
+- Remover itens da lista de favoritos.
 
 Depois que o app estiver pronto, você criará os seguintes testes:
-- Testes de unidade para validar as operações de inclusão e remoção
-- Testes de widgets para as página inicial e de favoritos
-- Testes de IU e desempenho para o app todo usando testes de integração
+- Testes de unidade para validar as operações de inclusão e remoção;
+- Testes de widgets para as página inicial e de favoritos;
+- Testes de IU e desempenho para o app todo usando testes de integração.
 
 ## 2. Configurar o ambiente do Flutter
 
 Você precisa de dois softwares: o SDK do Flutter e um editor.
 É possível usar qualquer um dos seguintes dispositivos:
-- Um dispositivo físico (Android ou iOS) conectado ao computador e configurado para o modo de desenvolvedor.
-- O iOS Simulator (requer a instalação de ferramentas do Xcode).
+- Um dispositivo físico (Android ou iOS) conectado ao computador e configurado para o modo de desenvolvedor;
+- O iOS Simulator (requer a instalação de ferramentas do Xcode);
 - O Android Emulator (requer configuração no Android Studio).
 
 ## 3. Primeiros passos
 
 Criar um novo app do Flutter e atualizar as dependências.
 
-O foco é testar um app do Flutter para dispositivos móveis. Você criará rapidamente o app que será testado, usando arquivos de origem que podem ser copiados e colados. O restante tem o objetivo de ensinar diferentes tipos de testes.
+O foco é testar um app para dispositivos móveis. Você criará rapidamente o app que será testado, usando arquivos de origem que podem ser copiados e colados. O restante tem o objetivo de ensinar diferentes tipos de testes.
 
-Crie um app de modelo simples do Flutter usando as instruções em Primeiros passos com seu primeiro app do Flutter. Nomeie o projeto como testes_devops, em vez de myapp. Você modificará esse app inicial para criar o final.
+Crie um app de modelo simples usando as instruções abaixo. Nomeie o projeto como <b>testes_devops</b>, em vez de myapp. Você modificará esse app inicial para criar o final.
 
-No ambiente de desenvolvimento integrado ou no editor, abra o arquivo pubspec.yaml. Adicione as seguintes dependências e salve o arquivo.
-pubspec.yaml
+No ambiente de desenvolvimento integrado ou no editor, abra o arquivo <b>pubspec.yaml</b>, adicione as seguintes dependências e salve o arquivo.
 
 ```yml
 name: testes_devops
@@ -67,23 +66,20 @@ flutter:
   uses-material-design: true
 ```
 
-Clique no botão Pub get no ambiente de desenvolvimento integrado ou, na linha de comando, execute flutter pub get na parte superior do projeto.
-Caso isso gere um erro, confira se o recuo no bloco dependencies está exatamente igual ao mostrado acima usando espaços, e não a tecla Tab. Os arquivos YAML são sensíveis a espaços em branco.
+Clique no botão <b>Pub get</b> no ambiente de desenvolvimento integrado ou, na linha de comando, execute <b>flutter pub get</b> na parte superior do projeto.
+Caso isso gere um erro, confira se o recuo no bloco <b>dependencies</b> está exatamente igual ao mostrado acima usando espaços, e não a tecla Tab. Os arquivos YAML são sensíveis a espaços em branco.
 
 ## 4. Criar o app
 
-Em seguida, você criará o app para testá-lo. O app contém os seguintes arquivos:
-- lib/main.dart: arquivo principal em que o app é iniciado.
-- lib/screens/home.dart: cria uma lista de itens.
-- lib/screens/favoritos.dart: cria o layout da lista de favoritos.
-- lib/models/favoritos.dart: cria a classe de modelo para a lista de favoritos.
+Em seguida, você criará o app para testá-lo, este contém os seguintes arquivos:
+- <b>lib/main.dart</b>: Arquivo principal em que o app é iniciado.
+- <b>lib/screens/home.dart</b>: Cria uma lista de itens.
+- <b>lib/screens/favoritos.dart</b>: Cria o layout da lista de favoritos.
+- <b>lib/models/favoritos.dart</b>: Cria a classe de modelo para a lista de favoritos.
 
-Substituir o conteúdo do lib/main.dart
-
-Substitua o conteúdo do lib/main.dart pelo seguinte código:
+Substituir o conteúdo do <b>lib/main.dart</b> pelo seguinte código:
 
 ```dart
-lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:provider/provider.dart';
@@ -119,11 +115,9 @@ class TestesDevops extends StatelessWidget {
 }
 ```
 
-Adicionar a página inicial ao lib/screens/home.dart
-Crie um novo diretório, screens, no lib e nele crie um novo arquivo chamado home.dart. No lib/screens/home.dart, adicione o seguinte código:
+Crie um novo diretório chamado <b>screens</b> no lib. Dentro dele crie um novo arquivo chamado <b>home.dart</b> e adicione o seguinte código:
 
 ```dart
-lib/screens/home.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:testes_devops/models/favoritos.dart';
@@ -204,11 +198,9 @@ class ItemTile extends StatelessWidget {
 }
 ```
 
-Adicionar a página de favoritos ao lib/screens/favoritos.dart
-No diretório lib/screens, crie outro arquivo chamado favoritos.dart. Nesse arquivo, adicione o seguinte código:
+No diretório <b>lib/screens</b>, crie outro arquivo chamado <b>favoritos.dart</b> e adicione o seguinte código:
 
 ```dart
-lib/screens/favoritos.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:testes_devops/models/favoritos.dart';
@@ -271,11 +263,9 @@ class FavoritoItemTile extends StatelessWidget {
 }
 ```
 
-Por fim, criar o modelo Favoritos no lib/models/favoritos.dart
-Crie um novo diretório models e nele crie um novo arquivo chamado favoritos.dart. Nesse arquivo, adicione o seguinte código:
+Crie um novo diretório chamado <b>models</b>. Dentro dele crie um novo arquivo chamado <b>favoritos.dart</b> e adicione o seguinte código:
 
 ```dart
-lib/models/favoritos.dart
 import 'package:flutter/material.dart';
 
 class Favoritos extends ChangeNotifier {
@@ -295,10 +285,10 @@ class Favoritos extends ChangeNotifier {
 }
 ```
 
-O app está concluído, mas ainda não foi testado.
-Execute o app clicando no ícone Run no editor. Isso pode demorar um pouco quando o app é executado pela primeira vez. Ele ficará mais rápido nas etapas posteriores.
- 
-O app exibe uma lista de itens. Toque no ícone em formato de coração em qualquer linha para preencher o coração e adicionar o item à lista de favoritos. O botão Favorites na AppBar leva a uma segunda tela que contém a lista de favoritos.
+O app está concluído, mas ainda não foi testado. Execute o app clicando no ícone <b>Run</b> no editor. Isso pode demorar um pouco quando o app é executado pela primeira vez. Ele ficará mais rápido nas etapas posteriores.
+
+O app exibe uma lista de itens. Toque no ícone em formato de coração em qualquer linha para preencher o coração e adicionar o item à lista de favoritos. O botão <b>Favoritos</b> na <b>AppBar</b> leva a uma segunda tela que contém a lista de favoritos.
+
 Agora o app está pronto para ser testado. Você dará início aos testes na próxima etapa.
 
 ## 5. Testes de unidade do provedor
@@ -307,20 +297,17 @@ Comece fazendo um teste de unidade do modelo favoritos. O que é esse teste? Um 
 
 Todos os arquivos de teste de um app do Flutter, exceto os testes de integração, são colocados no diretório test.
 
-Observação: essas instruções usam a linha de comando para executar os testes. No entanto, também é possível usar as opções oferecidas pelo VS Code e pelo Android Studio para executar testes de unidade e de widget no app.
+- Observação: essas instruções usam a linha de comando para executar os testes. No entanto, também é possível usar as opções oferecidas pelo VS Code e pelo Android Studio para executar testes de unidade e de widget no app.
 
-Remover o test/widget_test.dart
-
-Antes de iniciar o teste, exclua o arquivo widget_test.dart. Você adicionará seus próprios arquivos de teste.
+Antes de iniciar o teste, exclua o arquivo <b>widget_test.dart</b>. Você adicionará seus próprios arquivos de teste.
 
 Criar um novo arquivo de teste
 
-Primeiro, você testará o método adicionar() no modelo Favoritos para verificar se um novo item foi adicionado à lista e se ela reflete essa mudança. Por convenção, a estrutura de diretórios no diretório test imita a do diretório lib e os arquivos Dart têm o mesmo nome, mas com o anexo _test.
+Primeiro, você testará o método <b>adicionar()</b> no modelo <b>Favoritos</b> para verificar se um novo item foi adicionado à lista e se ela reflete essa mudança. Por convenção, a estrutura de diretórios no diretório <b>test</b> imita a do diretório <b>lib</b> e os arquivos Dart têm o mesmo nome, mas com o sulfixo <i>_test</i>.
 
-Crie um diretório models no test. Nesse novo diretório, crie um arquivo favoritos_test.dart com o seguinte conteúdo:
+Crie um diretório chamado <b>models</b> no test. Nesse novo diretório, crie o arquivo <b>favoritos_test.dart</b> com o seguinte conteúdo:
 
 ```dart
-test/models/favoritos_test.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testes_devops/models/favoritos.dart';
  
@@ -344,30 +331,48 @@ void main() {
 }
 ```
 
-O framework de testes do Flutter permite vincular testes semelhantes, que são relacionados entre si, em um grupo. Podem existir vários grupos em um único arquivo de teste destinados a testar partes diferentes do arquivo correspondente no diretório /lib.
-O método test() usa dois parâmetros de posicionamento: a description do teste e o callback em que o teste é criado.
-Executar o teste
+O framework de testes do Flutter permite vincular testes semelhantes, que são relacionados entre si, em um grupo. Podem existir vários grupos em um único arquivo de teste destinados a testar partes diferentes do arquivo correspondente no diretório <b>/lib</b>.
+
+O método <b>test()</b> usa dois parâmetros de posicionamento: a description do teste e o callback em que o teste é criado.
+
+#### Executar o teste
+
 Se o app estiver em execução no emulador ou dispositivo, feche-o antes de continuar.
+
 Na linha de comando, navegue até o diretório raiz do projeto e digite o seguinte comando:
-$ flutter test test/models/favorites_test.dart
+
+```shell
+$ flutter test test/models/favoritos_test.dart
+```
+
 Se tudo funcionar, você verá uma mensagem parecida com a seguinte:
+
+```shell
 00:06 +2: All tests passed!
+```
+
 Dica: é possível fazer todos os testes no diretório test de uma só vez. Basta executar:
+
+```shell
 $ flutter test
+```
 
 ## 6. Teste de widget
 
-Nesta etapa, você fará testes de widget. Os testes de widget são exclusivos do Flutter. Com eles, é possível testar individualmente cada widget escolhido. Nesta etapa, as telas HomePage e FavoritosPage serão testadas separadamente.
-O teste de widget usa a função testWidget(), e não a test(). Ele também usa dois parâmetros: a description, e o callback. No entanto, aqui o callback usa um WidgetTester como argumento.
-Os testes de widget usam a TestFlutterWidgetsBinding, uma classe que oferece os mesmos recursos que os widgets teriam em um app em execução (como informações sobre o tamanho da tela, a capacidade de programar animações, entre outras), mas sem o app real. Em vez disso, um ambiente virtual é usado para executar e medir o widget e, depois, testar os resultados. Aqui, o pumpWidget inicia o processo instruindo o framework a ativar e medir um widget específico, da mesma forma que seria feito em um aplicativo completo.
-O framework de teste de widget fornece finders para encontrar widgets, como text(), byType() e byIcon(), além de matchers para analisar os resultados.
-Comece testando o widget HomePage.
-Criar um novo arquivo de teste
-O primeiro teste verifica se a rolagem da HomePage funciona corretamente.
-Crie um novo arquivo no diretório test e nomeie-o como home_test.dart. Adicione o seguinte código no arquivo criado:
+Nesta etapa, você fará testes de widget. Os testes de widget são exclusivos do Flutter. Com eles, é possível testar individualmente cada widget escolhido. Nesta etapa, as telas <b>HomePage</b> e <b>FavoritosPage</b> serão testadas separadamente.
+
+O teste de widget usa a função <b>testWidget()</b>, e não a <b>test()</b>. Ele também usa dois parâmetros: a <b>description</b>, e o <b>callback</b>. No entanto, aqui o callback usa um <b>WidgetTester</b> como argumento.
+
+Os testes de widget usam a <b>TestFlutterWidgetsBinding</b>, uma classe que oferece os mesmos recursos que os widgets teriam em um app em execução (como informações sobre o tamanho da tela, a capacidade de programar animações, entre outras), mas sem o app real. Em vez disso, um ambiente virtual é usado para executar e medir o widget e, depois, testar os resultados. Aqui, o <b>pumpWidget</b> inicia o processo instruindo o framework a ativar e medir um widget específico, da mesma forma que seria feito em um aplicativo completo.
+
+O framework de teste de widget fornece finders para encontrar widgets, como <b>text()</b>, <b>byType()</b> e <b>byIcon()</b>, além de matchers para analisar os resultados.
+
+#### Comece testando o widget HomePage.
+
+Criar um novo arquivo de teste. O primeiro teste verifica se a rolagem da <b>HomePage</b> funciona corretamente.
+Crie um novo arquivo no diretório <b>test</b> e nomeie-o como <b>home_test.dart</b>. Adicione o seguinte código no arquivo criado:
 
 ```dart
-test/home_test.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -462,7 +467,7 @@ Faça mudanças no arquivo de teste e digite Shift + R para fazer uma recarga di
 Use o mesmo processo para testar a FavoritosPage com o código a seguir. Siga as mesmas etapas e execute o teste.
 
 ```dart
-test/favorites_test.dart
+test/favoritos_test.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -499,6 +504,7 @@ void main() {
 ```
 
 ## 7. Como testar o desempenho e a IU do app com testes de integração
+
 Os testes de integração são usados para testar a forma como as partes individuais de um app funcionam em conjunto. O pacote integration_test é usado para fazer testes de integração no Flutter. Essa é a versão do Flutter do Selenium WebDrive (Web), Protrator (Angular), Espresso (Android) ou Earl Gray (iOS). O pacote usa o flutter_driver internamente para conduzir o teste em um dispositivo.
 Instrumentar o app
 Para criar um teste de integração, primeiro é necessário instrumentar o app. Isso significa configurá-lo para que o driver possa acessar a GUI e as funções para criar e executar um teste automatizado. Os testes de integração são colocados em um diretório chamado integration_test. Nesta etapa, você adicionará os seguintes arquivos para criar o teste de integração:
